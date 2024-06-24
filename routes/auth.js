@@ -39,13 +39,7 @@ router.post(
         });
       }
       bcrypt.compare(password, user.password, (err, data) => {
-        // console.log(password, user.password)
-        //if error than throw error
-        // console.log(err)
-        // if (err) throw err;
-
         console.log("data:", data);
-        //if both match than you can do anything
         if (data) {
           let token;
           try {
@@ -76,7 +70,7 @@ router.post(
       });
     } catch (err) {
       return res.status(500).json({
-        error: err.message,
+        error: err,
         message: "Terdapat kesalahan pada server.",
       });
     }
